@@ -1,4 +1,0 @@
-repository "ONG-TAO-VE-TROI/ONG-TAO-VE-TROI@18968267093679@cloud"
-  path "/"
-    br "/main"
-    co "/main"
