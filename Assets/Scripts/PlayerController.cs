@@ -7,18 +7,30 @@ public class PlayerController : MonoBehaviour
     private Vector2 playerDirection;
     private Animator animator; // Reference to the Animator component
     [SerializeField] private float moveSpeed; // Speed of the player
-    [SerializeField] private float energy; // Speed of the player when boosted
-    [SerializeField] private float maxEnergy; // Maximum energy of the player
-    [SerializeField] private float energyRegen; // Maximum energy of the player
     public float boost = 1f;
     private float boostPower = 5f;
     private bool boosting = false;
+
+    [SerializeField] private float energy; // Speed of the player when boosted
+    [SerializeField] private float maxEnergy; // Maximum energy of the player
+    [SerializeField] private float energyRegen; // Maximum energy of the player
+    
+    [SerializeField] private float health; // health of the player
+    [SerializeField] private float maxHealth; // Maximum health of the player
+    
+    [SerializeField] private GameObject destroyEffect;
+    
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>(); // Get the Animator component attached to the player
+        
         energy = maxEnergy; // Initialize energy to maximum energy
         UIController.Instance.UpdateEnergySlider(energy, maxEnergy); // Update the UI with the initial energy value
+        
+        health = maxHealth; // Initialize health to maximum health
+        UIController.Instance.UpdateEnergySlider(health, maxHealth); // Update the UI with the initial health value
     }
 
     void Awake()
@@ -57,6 +69,8 @@ public class PlayerController : MonoBehaviour
             }
         }
         UIController.Instance.UpdateEnergySlider(energy, maxEnergy); // Update the UI with the current energy value
+        UIController.Instance.UpdateHealthSlider(health, maxHealth); // Update the UI with the current energy value
+
     }
 
     private void EnterBoost()
@@ -72,5 +86,22 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("boosting", false);
         boost = 1f;
         boosting = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision){
+        if(collision.gameObject.CompareTag("Obstacle")){
+            TakeDamage(1);
+        }
+    }
+
+    private void TakeDamage(int damage){
+        health -= damage;
+        UIController.Instance.UpdateHealthSlider(health, maxHealth);
+        if (health <= 0)
+        {
+            boost = 0f;
+            gameObject.SetActive(false);
+            Instantiate(destroyEffect, transform.position, transform.rotation);
+        }
     }
 }
