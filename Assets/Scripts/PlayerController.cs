@@ -1,11 +1,18 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
+
     private Rigidbody2D rb;
     private Vector2 playerDirection;
     private Animator animator; // Reference to the Animator component
+    private SpriteRenderer spriteRenderer;
+ 
+    private Material defaultMaterial;
+    [SerializeField] private Material whiteMaterial;
+
     [SerializeField] private float moveSpeed; // Speed of the player
     public float boost = 1f;
     private float boostPower = 5f;
@@ -25,7 +32,9 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>(); // Get the Animator component attached to the player
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        defaultMaterial = spriteRenderer.material;
+
         energy = maxEnergy; // Initialize energy to maximum energy
         UIController.Instance.UpdateEnergySlider(energy, maxEnergy); // Update the UI with the initial energy value
         
@@ -97,11 +106,19 @@ public class PlayerController : MonoBehaviour
     private void TakeDamage(int damage){
         health -= damage;
         UIController.Instance.UpdateHealthSlider(health, maxHealth);
+        spriteRenderer.material = whiteMaterial;
+        StartCoroutine("ResetMaterial");
+        
         if (health <= 0)
         {
             boost = 0f;
             gameObject.SetActive(false);
             Instantiate(destroyEffect, transform.position, transform.rotation);
         }
+    }
+
+    IEnumerator ResetMaterial(){
+        yield return new WaitForSeconds(0.2f);
+        spriteRenderer.material = defaultMaterial;
     }
 }
