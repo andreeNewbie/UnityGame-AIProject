@@ -1,0 +1,22 @@
+using UnityEngine;
+
+public class ParallaxBackground : MonoBehaviour
+{
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float scale; // Scale factor for the background image
+    float backgroundImageWidth;
+    void Start()
+    {
+        Sprite sprite = GetComponent<SpriteRenderer>().sprite;
+        backgroundImageWidth = sprite.texture.width / sprite.pixelsPerUnit;
+    }
+
+    void Update()
+    {
+        float moveX = (moveSpeed * PlayerController.Instance.boost) * Time.deltaTime; 
+        transform.position += new Vector3(moveX, 0);
+        if (Mathf.Abs(transform.position.x) - backgroundImageWidth / scale > 0){
+            transform.position = new Vector3(0f, transform.position.y);
+        }
+    }
+}

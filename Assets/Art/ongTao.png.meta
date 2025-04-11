@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: 14314081a3fd9dc43be75804612f3ad7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7316916029626630188
+    second: ongTao_0
+  - first:
+      213: 5804940776411108321
+    second: ongTao_1
+  - first:
+      213: 1084759228234239650
+    second: ongTao_2
+  - first:
+      213: 2864331145406736746
+    second: ongTao_3
+  - first:
+      213: -4501385788841787443
+    second: ongTao_4
+  - first:
+      213: -3447572957199236459
+    second: ongTao_5
+  - first:
+      213: -6024132339754295612
+    second: ongTao_6
+  - first:
+      213: -2313996474257384919
+    second: ongTao_7
+  - first:
+      213: 7265204260500912220
+    second: ongTao_8
+  - first:
+      213: 2916497149374345732
+    second: ongTao_9
+  - first:
+      213: 7933819797563664082
+    second: ongTao_10
+  - first:
+      213: -2103614743202776149
+    second: ongTao_11
+  - first:
+      213: 5890852459869546525
+    second: ongTao_12
+  - first:
+      213: -7563912127094824976
+    second: ongTao_13
+  - first:
+      213: -7030869189314444102
+    second: ongTao_14
+  - first:
+      213: 7231632120471038351
+    second: ongTao_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ongTao_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 22
+        width: 117
+        height: 138
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee7932c1862a2ad4e9e66278f07392a9
+      internalID: 693759127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ongTao_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 21
+        width: 103
+        height: 139
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccac33979a4b7cb4983a6c11267ae639
+      internalID: -1478760582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ongTao_2
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 24
+        width: 112
+        height: 136
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6f374a0efef13845a20f984bb0e857b
+      internalID: -1939132110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ongTao_3
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 22
+        width: 107
+        height: 141
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07d7fc7a98b8bbe49961deef767090c0
+      internalID: 1310701227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ongTao_4
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 20
+        width: 114
+        height: 142
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ec0ccf3e1a3d44a9d9a7de3b41bebb
+      internalID: -1253324345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ongTao_5
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 20
+        width: 129
+        height: 141
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aa86f499b5d47c4d80ec9351f35ae96
+      internalID: -1069775458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ongTao_6
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 19
+        width: 127
+        height: 142
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6350244d36fab5c47bcb9b92c9e92f02
+      internalID: 60093482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ongTao_7
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 128
+        width: 6
+        height: 7
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 506f4849f1b8f2a44a2e45e0f21123ff
+      internalID: 2115390293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ongTao_8
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 20
+        width: 129
+        height: 141
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dffbee013aec5d4d89b7f2e7a25aed9
+      internalID: 122241003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ongTao_9
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 21
+        width: 128
+        height: 139
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ac554c9ab6a70e488a4ea51f347eb16
+      internalID: 1559471447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ongTao_10
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 74
+        width: 33
+        height: 42
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69cb6479377447f4cb6a66360d956be3
+      internalID: -1900041247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ongTao_11
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 111
+        width: 4
+        height: 6
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4368c5e21b4b1d41ae6822bdfecb222
+      internalID: 837210801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ongTao_12
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 76
+        width: 36
+        height: 50
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 703261b45be09c645b9260590ef55a13
+      internalID: -2089835097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ongTao_13
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 56
+        width: 53
+        height: 35
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1d1a7f6dc601dc4c9c15809592eb203
+      internalID: -368161688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ongTao_14
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 89
+        width: 6
+        height: 5
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d7e4577e56e5c34fa484799cec7db30
+      internalID: 345091125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ongTao_15
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 47
+        width: 29
+        height: 31
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 156f87db7ec9b44449aeff4d4b7cba3c
+      internalID: -1341936422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 85b742ee9fac2684eab8d329618c8a42
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ongTao_0: 693759127
+      ongTao_1: -1478760582
+      ongTao_10: -1900041247
+      ongTao_11: 837210801
+      ongTao_12: -2089835097
+      ongTao_13: -368161688
+      ongTao_14: 345091125
+      ongTao_15: -1341936422
+      ongTao_2: -1939132110
+      ongTao_3: 1310701227
+      ongTao_4: -1253324345
+      ongTao_5: -1069775458
+      ongTao_6: 60093482
+      ongTao_7: 2115390293
+      ongTao_8: 122241003
+      ongTao_9: 1559471447
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
