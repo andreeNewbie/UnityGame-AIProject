@@ -1,24 +1,45 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
+
     private Rigidbody2D rb;
     private Vector2 playerDirection;
     private Animator animator; // Reference to the Animator component
+    private SpriteRenderer spriteRenderer;
+ 
+    private Material defaultMaterial;
+    [SerializeField] private Material whiteMaterial;
+
     [SerializeField] private float moveSpeed; // Speed of the player
-    [SerializeField] private float energy; // Speed of the player when boosted
-    [SerializeField] private float maxEnergy; // Maximum energy of the player
-    [SerializeField] private float energyRegen; // Maximum energy of the player
     public float boost = 1f;
     private float boostPower = 5f;
     private bool boosting = false;
+
+    [SerializeField] private float energy; // Speed of the player when boosted
+    [SerializeField] private float maxEnergy; // Maximum energy of the player
+    [SerializeField] private float energyRegen; // Maximum energy of the player
+    
+    [SerializeField] private float health; // health of the player
+    [SerializeField] private float maxHealth; // Maximum health of the player
+    
+    [SerializeField] private GameObject destroyEffect;
+    
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>(); // Get the Animator component attached to the player
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        defaultMaterial = spriteRenderer.material;
+
         energy = maxEnergy; // Initialize energy to maximum energy
         UIController.Instance.UpdateEnergySlider(energy, maxEnergy); // Update the UI with the initial energy value
+        
+        health = maxHealth; // Initialize health to maximum health
+        UIController.Instance.UpdateEnergySlider(health, maxHealth); // Update the UI with the initial health value
     }
 
     void Awake()
@@ -61,6 +82,8 @@ public class PlayerController : MonoBehaviour
             }
         }
         UIController.Instance.UpdateEnergySlider(energy, maxEnergy); // Update the UI with the current energy value
+        UIController.Instance.UpdateHealthSlider(health, maxHealth); // Update the UI with the current energy value
+
     }
 
     private void EnterBoost()
@@ -76,5 +99,30 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("boosting", false);
         boost = 1f;
         boosting = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision){
+        if(collision.gameObject.CompareTag("Obstacle")){
+            TakeDamage(1);
+        }
+    }
+
+    private void TakeDamage(int damage){
+        health -= damage;
+        UIController.Instance.UpdateHealthSlider(health, maxHealth);
+        spriteRenderer.material = whiteMaterial;
+        StartCoroutine("ResetMaterial");
+        
+        if (health <= 0)
+        {
+            boost = 0f;
+            gameObject.SetActive(false);
+            Instantiate(destroyEffect, transform.position, transform.rotation);
+        }
+    }
+
+    IEnumerator ResetMaterial(){
+        yield return new WaitForSeconds(0.2f);
+        spriteRenderer.material = defaultMaterial;
     }
 }

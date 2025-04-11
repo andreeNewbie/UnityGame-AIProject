@@ -1,28 +1,47 @@
+using System.Collections.Generic; //List<>
 using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
     [SerializeField] private Transform minPos;
     [SerializeField] private Transform maxPos;
-    public GameObject prefab;
-    public float spawnTimer;
-    public float spawnInterval;
-    public float spawnDelta;
+
+    [SerializeField] private int waveNumber;
+    [SerializeField] private List<Wave> waves;
+    
+
+    [System.Serializable] 
+    public class Wave
+    {    
+        public GameObject prefab;
+        public float spawnTimer;
+        public float spawnInterval;
+        public int objectsPerWave;
+        public int spawnedObjectCount;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        spawnInterval = Mathf.Max(spawnInterval - Time.deltaTime * PlayerController.Instance.boost / spawnDelta, 0.7f); // Increase the spawn interval based on player boost
-        spawnTimer += Time.deltaTime * PlayerController.Instance.boost; // Increase the spawn timer based on player boost
-        if (spawnTimer >= spawnInterval)
-        {
-            spawnTimer = 0;
+        waves[waveNumber].spawnTimer -= Time.deltaTime * GameManager.Instance.worldSpeed;
+        if (waves[waveNumber].spawnTimer <= 0){
+            waves[waveNumber].spawnTimer += waves[waveNumber].spawnInterval;
             SpawnObject();
+        }
+        if (waves[waveNumber].spawnedObjectCount >= waves[waveNumber].objectsPerWave){
+            waves[waveNumber].spawnedObjectCount = 0;
+            waveNumber++;
+            if (waveNumber >= waves.Count){
+                waveNumber = 0;
+            }
         }
     }
 
     private void SpawnObject()
     {
-        Instantiate(prefab, RandomSpawnerPoint(), transform.rotation);
+        Instantiate(waves[waveNumber].prefab, RandomSpawnerPoint(), transform.rotation);
+        waves[waveNumber].spawnedObjectCount++; 
+
     }
 
     private Vector2 RandomSpawnerPoint()
