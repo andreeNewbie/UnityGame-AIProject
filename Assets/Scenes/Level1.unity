@@ -1031,8 +1031,8 @@ GameObject:
 --- !u!224 &754205554
 RectTransform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2219905793966582723, guid: fd7ee391b11a5c644b92381654d0f7a0, type: 3}
-  m_PrefabInstance: {fileID: 1752603005}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754205553}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -1813,7 +1813,7 @@ MonoBehaviour:
   m_text: "HUY\u1EBET L\u01AF\u1EE2NG"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da753284a449ec84d86e6d080e6d7a2d, type: 2}
-  m_sharedMaterial: {fileID: 2787946685154792299, guid: da753284a449ec84d86e6d080e6d7a2d, type: 2}
+  m_sharedMaterial: {fileID: 956404774729826249, guid: da753284a449ec84d86e6d080e6d7a2d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2143,6 +2143,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7ee391b11a5c644b92381654d0f7a0, type: 3}
+--- !u!224 &1752603006 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2219905793966582723, guid: fd7ee391b11a5c644b92381654d0f7a0, type: 3}
+  m_PrefabInstance: {fileID: 1752603005}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1760618612
 GameObject:
   m_ObjectHideFlags: 0
@@ -2313,7 +2318,7 @@ MonoBehaviour:
   m_text: "N\u0102NG L\u01AF\u1EE2NG"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da753284a449ec84d86e6d080e6d7a2d, type: 2}
-  m_sharedMaterial: {fileID: 2787946685154792299, guid: da753284a449ec84d86e6d080e6d7a2d, type: 2}
+  m_sharedMaterial: {fileID: 956404774729826249, guid: da753284a449ec84d86e6d080e6d7a2d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2602,8 +2607,8 @@ RectTransform:
   m_Children:
   - {fileID: 417764976}
   - {fileID: 1131170731}
-  - {fileID: 758217772}
   - {fileID: 1506669883}
+  - {fileID: 1752603006}
   m_Father: {fileID: 910060116}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
