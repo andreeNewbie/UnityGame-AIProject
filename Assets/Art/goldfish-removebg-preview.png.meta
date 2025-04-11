@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      goldfish-removebg-preview_0: -3505126835114234801
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

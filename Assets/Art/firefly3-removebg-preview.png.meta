@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      firefly3-removebg-preview_0: -3485375100824428162
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
