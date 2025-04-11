@@ -1012,13 +1012,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694868467}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
---- !u!224 &758217772 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2219905793966582723, guid: fd7ee391b11a5c644b92381654d0f7a0, type: 3}
-  m_PrefabInstance: {fileID: 1752603005}
-  m_PrefabAsset: {fileID: 0}
-=======
 --- !u!1 &754205553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,8 +1031,8 @@ GameObject:
 --- !u!224 &754205554
 RectTransform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2219905793966582723, guid: fd7ee391b11a5c644b92381654d0f7a0, type: 3}
+  m_PrefabInstance: {fileID: 1752603005}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754205553}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -1055,7 +1048,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
->>>>>>> origin/main
 --- !u!1 &910060111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,11 +1161,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 518567325}
-<<<<<<< HEAD
   - {fileID: 1963131458}
-=======
   - {fileID: 670151924}
->>>>>>> origin/main
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1778,13 +1767,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!224 &1506669883 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2219905793966582723, guid: fd7ee391b11a5c644b92381654d0f7a0, type: 3}
   m_PrefabInstance: {fileID: 2044341755}
   m_PrefabAsset: {fileID: 0}
-=======
 --- !u!1 &1521663894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1996,7 +1983,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567828910}
   m_CullTransparentMesh: 1
->>>>>>> origin/main
 --- !u!1 &1748612815
 GameObject:
   m_ObjectHideFlags: 0
@@ -2028,7 +2014,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1232550800}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1001 &1752603005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2158,7 +2143,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7ee391b11a5c644b92381654d0f7a0, type: 3}
-=======
 --- !u!1 &1760618612
 GameObject:
   m_ObjectHideFlags: 0
@@ -2234,7 +2218,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760618612}
   m_CullTransparentMesh: 1
->>>>>>> origin/main
 --- !u!1 &1777975552
 GameObject:
   m_ObjectHideFlags: 0
