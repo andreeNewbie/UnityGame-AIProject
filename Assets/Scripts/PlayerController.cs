@@ -31,16 +31,20 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        float directionX = Input.GetAxisRaw("Horizontal");
-        float directionY = Input.GetAxisRaw("Vertical");
-        animator.SetFloat("moveX", directionX);
-        animator.SetFloat("moveY", directionY); // Set the animator parameters for movement
-        playerDirection = new Vector2(directionX, directionY).normalized;
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire2")){
-            EnterBoost();
-        } else if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("Fire2")){
-            ExitBoost();
-        } else if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("Fire2")){
+        if(Time.timeScale > 0) {
+
+            float directionX = Input.GetAxisRaw("Horizontal");
+            float directionY = Input.GetAxisRaw("Vertical");
+            animator.SetFloat("moveX", directionX);
+            animator.SetFloat("moveY", directionY); // Set the animator parameters for movement
+            
+            playerDirection = new Vector2(directionX, directionY).normalized;
+            if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire2")){
+                EnterBoost();
+            } else if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("Fire2")){
+                ExitBoost();
+            } else if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("Fire2")){
+            }
         }
     }
 
@@ -67,7 +71,7 @@ public class PlayerController : MonoBehaviour
             boosting = true;
         }
     }
-    private void ExitBoost()
+    public void ExitBoost()
     {
         animator.SetBool("boosting", false);
         boost = 1f;
