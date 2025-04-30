@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CaChepAni_0: -5155267250388368937
+      CaChepAni_1: -3070700175255413474
+      CaChepAni_2: -4269580430225450847
+      CaChepAni_3: -6598911369368977186
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
