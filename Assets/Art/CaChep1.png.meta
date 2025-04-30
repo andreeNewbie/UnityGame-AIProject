@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4bd264902e9cb4f4db95d7325f6325cd
+guid: bafd2004fac48b14299df1de58c5c2ed
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1622524721689181744
-    second: firefly_0
+      213: 8542706230233525894
+    second: CaChep1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: firefly_0
+      name: CaChep1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 27
-        width: 82
-        height: 82
+        x: 28
+        y: 7
+        width: 996
+        height: 640
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 82, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d14d64bc52ab79e0800000000000000
-      internalID: -1622524721689181744
+      spriteID: 68ee5912e0acd8670800000000000000
+      internalID: 8542706230233525894
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 78dbb7130c359244fa2eac4c37c36879
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      firefly_0: -1622524721689181744
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

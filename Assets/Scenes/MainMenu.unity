@@ -196,7 +196,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -363050046477458928, guid: 0d87ba264bc850346a494f407b875c2d, type: 3}
+  m_Sprite: {fileID: 4519453336262508551, guid: 77a8bc71072785c4aa9d27b6c4d322f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -320,10 +320,9 @@ GameObject:
   m_Component:
   - component: {fileID: 681787923}
   - component: {fileID: 681787925}
-  - component: {fileID: 681787924}
   - component: {fileID: 681787926}
   m_Layer: 0
-  m_Name: TaoBoosting-01_0
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,24 +337,12 @@ Transform:
   m_GameObject: {fileID: 681787922}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.97, y: 0.13, z: 0}
-  m_LocalScale: {x: 0.5334844, y: 0.5334844, z: 0.5334844}
+  m_LocalPosition: {x: -6.36, y: -1.83, z: 0}
+  m_LocalScale: {x: 0.6744843, y: 0.6744843, z: 0.6744843}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 871321902}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &681787924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681787922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f05b710c6765644aa2e15ba818c5ef9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &681787925
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -400,7 +387,7 @@ SpriteRenderer:
   m_SortingLayerID: 32937363
   m_SortingLayer: 1
   m_SortingOrder: 4
-  m_Sprite: {fileID: -6388447902876269539, guid: 22a9cb750fe644840a3c17340a1e58a2, type: 3}
+  m_Sprite: {fileID: -2260500311462715592, guid: 8a48937929f9a5140977c5bb314932cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1338,7 +1325,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 113675349898799350, guid: 1d976c721e532064099095abfcabae45, type: 3}
       propertyPath: m_text
-      value: "\u0110\u01AFA\nT\xC1O\nV\u1EC0 \nTR\u1EDCI"
+      value: "\u0110\u01B0a\nT\xE1o\nv\u1EC1\ntr\u1EDDi"
       objectReference: {fileID: 0}
     - target: {fileID: 113675349898799350, guid: 1d976c721e532064099095abfcabae45, type: 3}
       propertyPath: m_fontSize
@@ -1351,10 +1338,18 @@ PrefabInstance:
     - target: {fileID: 113675349898799350, guid: 1d976c721e532064099095abfcabae45, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 5c9935587e129d74e87e990503895bbc, type: 2}
+      objectReference: {fileID: 11400000, guid: 3b5a1fcabb7089b48b53926ef3e12b25, type: 2}
     - target: {fileID: 113675349898799350, guid: 1d976c721e532064099095abfcabae45, type: 3}
       propertyPath: m_fontStyle
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 113675349898799350, guid: 1d976c721e532064099095abfcabae45, type: 3}
+      propertyPath: m_lineSpacing
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 113675349898799350, guid: 1d976c721e532064099095abfcabae45, type: 3}
+      propertyPath: m_wordSpacing
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 113675349898799350, guid: 1d976c721e532064099095abfcabae45, type: 3}
       propertyPath: m_fontSizeBase
@@ -1363,7 +1358,7 @@ PrefabInstance:
     - target: {fileID: 113675349898799350, guid: 1d976c721e532064099095abfcabae45, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2183632175181193440, guid: 5c9935587e129d74e87e990503895bbc, type: 2}
+      objectReference: {fileID: -798949119766225735, guid: 3b5a1fcabb7089b48b53926ef3e12b25, type: 2}
     - target: {fileID: 113675349898799350, guid: 1d976c721e532064099095abfcabae45, type: 3}
       propertyPath: m_enableAutoSizing
       value: 0
@@ -1502,11 +1497,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1392904995296197656, guid: 1d976c721e532064099095abfcabae45, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 603
+      value: 749
       objectReference: {fileID: 0}
     - target: {fileID: 1392904995296197656, guid: 1d976c721e532064099095abfcabae45, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 44
+      value: -65.01
       objectReference: {fileID: 0}
     - target: {fileID: 1392904995296197656, guid: 1d976c721e532064099095abfcabae45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

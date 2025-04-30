@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 4bd264902e9cb4f4db95d7325f6325cd
+guid: 82e56c16616011d4781c104165675fdc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1622524721689181744
-    second: firefly_0
+      213: -5155267250388368937
+    second: CaChepAni_0
+  - first:
+      213: -3070700175255413474
+    second: CaChepAni_1
+  - first:
+      213: -4269580430225450847
+    second: CaChepAni_2
+  - first:
+      213: -6598911369368977186
+    second: CaChepAni_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +122,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: firefly_0
+      name: CaChepAni_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 27
-        width: 82
-        height: 82
+        x: 11
+        y: 0
+        width: 710
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 82, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d14d64bc52ab79e0800000000000000
-      internalID: -1622524721689181744
+      spriteID: 7d18562efbfc478b0800000000000000
+      internalID: -5155267250388368937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaChepAni_1
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 496
+        width: 818
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1ddb2ab57ea265d0800000000000000
+      internalID: -3070700175255413474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaChepAni_2
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 57
+        width: 589
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a8d37c48376fb4c0800000000000000
+      internalID: -4269580430225450847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaChepAni_3
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 0
+        width: 772
+        height: 494
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed0c9747215fb64a0800000000000000
+      internalID: -6598911369368977186
       vertices: []
       indices: 
       edges: []
@@ -138,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 78dbb7130c359244fa2eac4c37c36879
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -147,8 +222,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      firefly_0: -1622524721689181744
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
