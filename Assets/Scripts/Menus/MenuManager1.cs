@@ -8,7 +8,11 @@ public class MenuManager1 : MonoBehaviour
     {
         Time.timeScale = 1f; // Ensure the game is not paused at the start   
     }
-
+    
+    void Update()
+    {
+        
+    }
     public void newGame() {
         SceneManager.LoadScene("Level1"); // Load the game scene
     }
