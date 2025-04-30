@@ -19,4 +19,5 @@ public class MenuParallax : MonoBehaviour
             transform.position = new Vector3(0f, transform.position.y);
         }
     }
+    
 }
