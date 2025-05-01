@@ -41,7 +41,8 @@ public class PlayerController : MonoBehaviour
         UIController.Instance.UpdateEnergySlider(energy, maxEnergy); // Update the UI with the initial energy value
         
         health = maxHealth; // Initialize health to maximum health
-        UIController.Instance.UpdateEnergySlider(health, maxHealth); // Update the UI with the initial health value
+        UIController.Instance.UpdateHealthSlider(health, maxHealth); // Update the UI with the initial health value
+
     }
 
     void Awake()
@@ -91,6 +92,7 @@ public class PlayerController : MonoBehaviour
     private void EnterBoost()
     {
         if (energy > 10){
+            AudioManager.Instance.PlaySound(AudioManager.Instance.fire);
             animator.SetBool("boosting", true);
             boost = boostPower;
             boosting = true;
@@ -114,13 +116,14 @@ public class PlayerController : MonoBehaviour
         UIController.Instance.UpdateHealthSlider(health, maxHealth);
         spriteRenderer.material = whiteMaterial;
         StartCoroutine("ResetMaterial");
-        
+        AudioManager.Instance.PlaySound(AudioManager.Instance.hit);
         if (health <= 0)
         {
             boost = 0f;
             gameObject.SetActive(false);
             Instantiate(destroyEffect, transform.position, transform.rotation);
             GameManager.Instance.GameOver(); // Call the GameOver method from the GameManager script
+            AudioManager.Instance.PlaySound(AudioManager.Instance.ice);
         }
     }
 

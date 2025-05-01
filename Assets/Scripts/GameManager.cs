@@ -23,9 +23,11 @@ public class GameManager : MonoBehaviour
 
     public void pause() {
         if(UIController.Instance.pausePanel.activeSelf == false){
+            AudioManager.Instance.PlaySound(AudioManager.Instance.pause);
             Time.timeScale = 0f; // Pause the game
             UIController.Instance.pausePanel.SetActive(true); // Show the pause panel
         } else {
+            AudioManager.Instance.PlaySound(AudioManager.Instance.unpause);
             Time.timeScale = 1f; // Resume the game
             UIController.Instance.pausePanel.SetActive(false); // Hide the pause panel
             PlayerController.Instance.ExitBoost(); // Exit boost mode if the game is resumed
