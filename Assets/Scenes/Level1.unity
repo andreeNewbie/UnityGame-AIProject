@@ -2331,8 +2331,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "HUY\u1EBET L\u01AF\u1EE2NG"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da753284a449ec84d86e6d080e6d7a2d, type: 2}
+  m_sharedMaterial: {fileID: 956404774729826249, guid: da753284a449ec84d86e6d080e6d7a2d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2702,8 +2702,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "N\u0102NG L\u01AF\u1EE2NG"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da753284a449ec84d86e6d080e6d7a2d, type: 2}
+  m_sharedMaterial: {fileID: 956404774729826249, guid: da753284a449ec84d86e6d080e6d7a2d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
