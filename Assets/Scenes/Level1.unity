@@ -2021,6 +2021,16 @@ MonoBehaviour:
     spawnInterval: 5
     objectsPerWave: 1
     spawnedObjectCount: 0
+  - prefab: {fileID: 4845069082744871605, guid: 01bf48dda4dba7c469cfd892880ea5e6, type: 3}
+    spawnTimer: 0
+    spawnInterval: 3
+    objectsPerWave: 2
+    spawnedObjectCount: 0
+  - prefab: {fileID: 799644078436540114, guid: 6eeaaff100797784097c0fa41775f45d, type: 3}
+    spawnTimer: 0
+    spawnInterval: 2
+    objectsPerWave: 3
+    spawnedObjectCount: 0
 --- !u!4 &1232550800
 Transform:
   m_ObjectHideFlags: 0
@@ -2169,7 +2179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whiteMaterial: {fileID: 2100000, guid: 20f484dc9c673b6498774a836159fdfb, type: 2}
-  moveSpeed: 2
+  moveSpeed: 5
   boost: 1
   energy: 0
   maxEnergy: 50
@@ -2177,6 +2187,7 @@ MonoBehaviour:
   health: 10
   maxHealth: 5
   destroyEffect: {fileID: 6125027839830206653, guid: 82e92790c37d03745af1e4e3fba6a35d, type: 3}
+  goldfish: 0
 --- !u!95 &1247679714
 Animator:
   serializedVersion: 7
@@ -2320,8 +2331,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "HUY\u1EBET L\u01AF\u1EE2NG"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: da753284a449ec84d86e6d080e6d7a2d, type: 2}
-  m_sharedMaterial: {fileID: 956404774729826249, guid: da753284a449ec84d86e6d080e6d7a2d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2691,8 +2702,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "N\u0102NG L\u01AF\u1EE2NG"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: da753284a449ec84d86e6d080e6d7a2d, type: 2}
-  m_sharedMaterial: {fileID: 956404774729826249, guid: da753284a449ec84d86e6d080e6d7a2d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxHealth; // Maximum health of the player
     
     [SerializeField] private GameObject destroyEffect;
+
+    [SerializeField] private int goldfish = 0;
     
 
     void Start()
@@ -125,5 +127,11 @@ public class PlayerController : MonoBehaviour
     IEnumerator ResetMaterial(){
         yield return new WaitForSeconds(0.2f);
         spriteRenderer.material = defaultMaterial;
+    }
+
+    public void UpdateGoldfish(int amount)
+    {
+        if(amount < 0 && goldfish < amount) return;
+        goldfish += amount;
     }
 }
