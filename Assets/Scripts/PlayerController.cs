@@ -54,10 +54,8 @@ public class PlayerController : MonoBehaviour
         health = maxHealth; // Initialize health to maximum health
         UIController.Instance.UpdateHealthSlider(health, maxHealth); // Update the UI with the initial health value
 
-        goldfish = 5; // Initialize goldfish to 0
+        goldfish = 0; // Initialize goldfish to 0
         UIController.Instance.UpdateGoldfishSlider(goldfish, maxGoldfish); // Update the UI with the initial goldfish value
-        Debug.Log("Goldfish: " + goldfish);
-        Debug.Log("Max Goldfish: " + maxGoldfish); // Log the maximum goldfish value
 
     }
 

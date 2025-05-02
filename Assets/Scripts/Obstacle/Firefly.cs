@@ -8,7 +8,6 @@ public class Firefly : MonoBehaviour
     private Vector3 lastPlayerPosition;
     private Vector3 predictedTargetPosition;
     private Quaternion targetRotation; 
-    private bool isInitialized = false;
     [SerializeField] private GameObject boomEffect;
 
     void Start()
