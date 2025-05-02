@@ -14,13 +14,6 @@ public class UIController : MonoBehaviour
     [SerializeField] private Slider goldfishSlider;
     [SerializeField] private TMP_Text goldfishText; 
     public GameObject pausePanel;
-    private void Awake(){
-        if (Instance != null){
-            Destroy(gameObject);
-        } else{
-            Instance = this;
-        }
-    }
     
     public void UpdateEnergySlider(float current, float max){
         energySlider.value = Mathf.RoundToInt(current); // Round the current energy value to the nearest integer
@@ -38,5 +31,13 @@ public class UIController : MonoBehaviour
         goldfishSlider.value = Mathf.RoundToInt(current); // Round the current energy value to the nearest integer
         goldfishSlider.maxValue = max;
         goldfishText.text = goldfishSlider.value + "/" + goldfishSlider.maxValue; // Update the text to show current and max energy
+    }
+
+    private void Awake(){
+        if (Instance != null){
+            Destroy(gameObject);
+        } else{
+            Instance = this;
+        }
     }
 }
