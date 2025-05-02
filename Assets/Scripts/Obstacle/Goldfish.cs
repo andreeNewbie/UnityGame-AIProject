@@ -15,14 +15,18 @@ public class GoldFish : MonoBehaviour
     {
         // floating up down ~~
         transform.position = startPos + new Vector3(0, Mathf.Sin(Time.time) * floatStrength, 0);
+
+        // floating in random direction
+        Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized;
+        transform.position += randomDirection * floatStrength * Time.deltaTime; 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            PlayerController.Instance.UpdateGoldfish(1); 
-            Destroy(gameObject);
+            Debug.Log("Goldfish is destroyed!");
+            Destroy(gameObject); 
         }
     }
 

@@ -24,11 +24,21 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField] private float health; // health of the player
     [SerializeField] private float maxHealth; // Maximum health of the player
+
+    [SerializeField] private int goldfish;
+    [SerializeField] private int maxGoldfish; // Maximum goldfish of the player
     
     [SerializeField] private GameObject destroyEffect;
     [SerializeField] private ParticleSystem engineEffect; //create smoke
 
-    [SerializeField] private int goldfish = 0;
+    void Awake()
+    {
+        if (Instance != null){
+            Destroy(gameObject); 
+        } else{
+            Instance = this;
+        }
+    }
     
 
     void Start()
@@ -44,16 +54,13 @@ public class PlayerController : MonoBehaviour
         health = maxHealth; // Initialize health to maximum health
         UIController.Instance.UpdateHealthSlider(health, maxHealth); // Update the UI with the initial health value
 
+        goldfish = 5; // Initialize goldfish to 0
+        UIController.Instance.UpdateGoldfishSlider(goldfish, maxGoldfish); // Update the UI with the initial goldfish value
+        Debug.Log("Goldfish: " + goldfish);
+        Debug.Log("Max Goldfish: " + maxGoldfish); // Log the maximum goldfish value
+
     }
 
-    void Awake()
-    {
-        if (Instance != null){
-            Destroy(gameObject);
-        } else{
-            Instance = this;
-        }
-    }
     void Update()
     {
         if(Time.timeScale > 0) {
@@ -92,7 +99,8 @@ public class PlayerController : MonoBehaviour
             }
         }
         UIController.Instance.UpdateEnergySlider(energy, maxEnergy); // Update the UI with the current energy value
-        UIController.Instance.UpdateHealthSlider(health, maxHealth); // Update the UI with the current energy value
+        UIController.Instance.UpdateHealthSlider(health, maxHealth); // Update the UI with the current heath value
+        UIController.Instance.UpdateGoldfishSlider(goldfish, maxGoldfish); // Update the UI with the current goldfish value
 
     }
 
@@ -116,6 +124,26 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision){
         if(collision.gameObject.CompareTag("Obstacle")){
             TakeDamage(1);
+        }
+        if(collision.gameObject.CompareTag("GoldfishPlus")){
+            UpdateGoldfish(1);
+            Debug.Log("Goldfish: " + goldfish); // Log the current goldfish value
+        }
+        if(collision.gameObject.CompareTag("GoldfishMinus")){
+            UpdateGoldfish(-1);
+            Debug.Log("Goldfish: " + goldfish); // Log the current goldfish value
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other){
+        if(other.CompareTag("Obstacle")){
+            TakeDamage(1);
+        }
+        if(other.CompareTag("GoldfishPlus")){
+            UpdateGoldfish(1);
+        }
+        if(other.CompareTag("GoldfishMinus")){
+            UpdateGoldfish(-1);
         }
     }
 
@@ -142,7 +170,27 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateGoldfish(int amount)
     {
-        if(amount < 0 && goldfish < amount) return;
+        // Kiểm tra phòng trường hợp giảm goldfish khi đã là 0
+        if (amount < 0 && goldfish <= 0) {
+            Debug.Log("Goldfish = 0");
+            return;
+        }
+        
         goldfish += amount;
+        Debug.Log("Goldfish: " + goldfish + "/" + maxGoldfish);
+        
+        // Đảm bảo không vượt quá maxGoldfish
+        if (goldfish > maxGoldfish) {
+            goldfish = maxGoldfish;
+            Debug.Log("Goldfish = max" + maxGoldfish);
+        }
+        
+        if(UIController.Instance != null) {
+            UIController.Instance.UpdateGoldfishSlider(goldfish, maxGoldfish); 
+        }
+        else {
+            Debug.Log("UIController.Instance is null"); 
+        }
+        
     }
 }

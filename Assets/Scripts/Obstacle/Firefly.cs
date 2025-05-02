@@ -8,9 +8,7 @@ public class Firefly : MonoBehaviour
     private Vector3 lastPlayerPosition;
     private Vector3 predictedTargetPosition;
     private Quaternion targetRotation; 
-
-    
-
+    private bool isInitialized = false;
     [SerializeField] private GameObject boomEffect;
 
     void Start()
@@ -29,7 +27,12 @@ public class Firefly : MonoBehaviour
 
     private void MoveTowardsTarget(Vector3 targetPosition)
     {
-        // Di chuyển về phía vị trí dự đoán của player
+        // Validate the target position before moving
+        if (float.IsNaN(targetPosition.x) || float.IsNaN(targetPosition.y) || float.IsNaN(targetPosition.z))
+        {
+            Debug.LogWarning("Invalid target position detected (NaN). Using current player position instead.");
+            targetPosition = PlayerController.Instance.transform.position;
+        }
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime); 
     }
     private void RotateTowardsTarget(Vector3 targetPosition)
@@ -59,6 +62,14 @@ public class Firefly : MonoBehaviour
         // (tốc độ và hướng di chuyển của player trong một khoảng time rất nhỏ)
         Vector3 playerVelocity = (PlayerController.Instance.transform.position - lastPlayerPosition) / Time.deltaTime; 
 
+        // Check for NaN or infinity values in velocity
+        if (float.IsNaN(playerVelocity.x) || float.IsInfinity(playerVelocity.x) ||
+            float.IsNaN(playerVelocity.y) || float.IsInfinity(playerVelocity.y) ||
+            float.IsNaN(playerVelocity.z) || float.IsInfinity(playerVelocity.z)) {
+            predictedTargetPosition = currentPlayerPosition;
+            return;
+        }
+
         // vị trí dự đoán của player
         predictedTargetPosition = currentPlayerPosition + playerVelocity * predictTime; 
     }
@@ -66,10 +77,8 @@ public class Firefly : MonoBehaviour
     // Khi va chạm với Player => firefly biến mất, -1 goldfish của player
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player")) 
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Bullet")) 
         {
-            PlayerController.Instance.UpdateGoldfish(-1);
-
             if (boomEffect != null)
             {
                 Instantiate(boomEffect, transform.position, Quaternion.identity);
