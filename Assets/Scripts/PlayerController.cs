@@ -125,8 +125,28 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.CompareTag("Obstacle")){
             TakeDamage(1);
         }
-        else if(collision.gameObject.CompareTag("Boss")){
+        if(collision.gameObject.CompareTag("Boss")){
             TakeDamage(5);
+        }
+        if(collision.gameObject.CompareTag("GoldfishPlus")){
+            UpdateGoldfish(1);
+            Debug.Log("Goldfish: " + goldfish); // Log the current goldfish value
+        }
+        if(collision.gameObject.CompareTag("GoldfishMinus")){
+            UpdateGoldfish(-1);
+            Debug.Log("Goldfish: " + goldfish); // Log the current goldfish value
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other){
+        if(other.CompareTag("Obstacle")){
+            TakeDamage(1);
+        }
+        if(other.CompareTag("GoldfishPlus")){
+            UpdateGoldfish(1);
+        }
+        if(other.CompareTag("GoldfishMinus")){
+            UpdateGoldfish(-1);
         }
     }
 
