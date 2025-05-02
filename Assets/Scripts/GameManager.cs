@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("Fire3")){
             pause();
         }
-        if(critterCounter > 10) {
+        if(critterCounter > 9) {
             critterCounter = 0;
             Instantiate(boss1, new Vector2(11f, 0), Quaternion.identity); // Spawn the boss
         }
@@ -59,5 +59,9 @@ public class GameManager : MonoBehaviour
     IEnumerator ShowGameOverScreen() {
         yield return new WaitForSeconds(3f); // Wait for 2 seconds before showing the game over screen
         SceneManager.LoadScene("GameOver"); // Load the game over scene
+    }
+
+    public void SetWorldSpeed(float speed) {
+        worldSpeed = speed; // Set the world speed
     }
 };
