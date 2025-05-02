@@ -9,6 +9,8 @@ public class Obstacle : MonoBehaviour
     private Material defaultMaterial;
     [SerializeField] private Material whiteMaterial;
 
+    [SerializeField] private int lives = 3; // Set the initial lives of the obstacle
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -33,8 +35,20 @@ public class Obstacle : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision){
         if(collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Bullet")){
-            spriteRenderer.material = whiteMaterial;
-            StartCoroutine("ResetMaterial");
+            TakeDamage(1); // Call the TakeDamage method when colliding with player or bullet
+        }
+        else if(collision.gameObject.CompareTag("Boss")){
+            TakeDamage(10); // Call the TakeDamage method when colliding with boss
+        }
+    }
+
+    public void TakeDamage(int damage){
+        spriteRenderer.material = whiteMaterial;
+        StartCoroutine("ResetMaterial");
+        AudioManager.Instance.PlaySound(AudioManager.Instance.hitRock); // Play the hit sound
+        lives -= damage; // Decrease the lives of the obstacle
+        if(lives <= 0){
+            Destroy(gameObject); // Destroy the obstacle if its lives reach zero
         }
     }
     

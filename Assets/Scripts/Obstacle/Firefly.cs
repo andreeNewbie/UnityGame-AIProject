@@ -80,6 +80,7 @@ public class Firefly : MonoBehaviour
                 Debug.LogWarning("BoomEffect is not assigned in the Inspector.");
             }
             Destroy(gameObject, 0.05f); // 0.05 seconds delay
+            GameManager.Instance.critterCounter++;
             Debug.Log("Firefly hit player!");
         }
     }

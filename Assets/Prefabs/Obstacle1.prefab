@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whiteMaterial: {fileID: 2100000, guid: 20f484dc9c673b6498774a836159fdfb, type: 2}
+  lives: 3
 --- !u!50 &1747530735067551146
 Rigidbody2D:
   serializedVersion: 5

@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public static GameManager Instance;
     public float worldSpeed;
+    public int critterCounter;
+    [SerializeField] private GameObject boss1; 
     void Awake(){
         if (Instance != null){
             Destroy(gameObject);
@@ -15,9 +17,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void Start(){
+        critterCounter = 0; // Initialize the critter counter to 0
+    }
+
     void Update(){
         if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("Fire3")){
             pause();
+        }
+        if(critterCounter > 10) {
+            critterCounter = 0;
+            Instantiate(boss1, new Vector2(11f, 0), Quaternion.identity); // Spawn the boss
         }
     }
 

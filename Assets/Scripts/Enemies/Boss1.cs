@@ -8,10 +8,10 @@ public class Boss1 : MonoBehaviour
     private bool charging;
     private float switchInterval;
     private float switchTimer;
-    //private int lives;
+    private int lives;
     void Start()
     {
-        //lives = 100; // Set the initial lives of the boss
+        lives = 100; // Set the initial lives of the boss
         EnterChargeState(); 
     }
 
@@ -41,23 +41,32 @@ public class Boss1 : MonoBehaviour
     void EnterPatrolState(){
         speedX = 0;
         speedY = Random.Range(-2f, 2f);  
-        switchInterval = Random.Range(5f, 10f); // Randomize the switch interval between 5 and 10 seconds
+        switchInterval = Random.Range(4f, 9f); // Randomize the switch interval between 4 and 9 seconds
         switchTimer = switchInterval;
         charging = false; // Set the charging state to false
     }
     void EnterChargeState(){
         speedX = -5f;
         speedY = 0;  
-        switchInterval = Random.Range(2f, 2.5f); // Randomize the switch interval between 2 and 2.5 seconds
+        switchInterval = Random.Range(1f, 1.5f); // Randomize the switch interval between 1 and 1.5 seconds
         switchTimer = switchInterval;
         charging = true; // Set the charging state to true
-        //AudioManager.Instance.PlaySound(AudioManager.Instance.bossCharge); // Play the boss charge sound 
+        AudioManager.Instance.PlaySound(AudioManager.Instance.bossCharge); // Play the boss charge sound 
     }
 
-    // public void TakeDamage(int damage){
-    //     lives -= damage; // Decrease the boss's lives by the damage taken
-    //     if(lives <= 0){
-    //         Destroy(gameObject); // Destroy the boss if its lives reach zero
-    //     }
+    public void TakeDamage(int damage){
+        AudioManager.Instance.PlaySound(AudioManager.Instance.hitArmor); // Play the hit sound
+        lives -= damage; // Decrease the boss's lives by the damage taken
+        if(lives <= 0){
+            Destroy(gameObject); // Destroy the boss if its lives reach zero
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision){
+        if(collision.gameObject.CompareTag("Bullet")){
+            TakeDamage(2);
+        }
+            
+    }
 
 }
