@@ -8,6 +8,8 @@ public class AudioManager : MonoBehaviour
     public AudioSource hit;
     public AudioSource pause;
     public AudioSource unpause;
+    public AudioSource hitArmor;
+    public AudioSource bossCharge;
     void Awake()
     {
         if (Instance != null){
