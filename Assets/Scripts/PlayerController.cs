@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float moveSpeed; // Speed of the player
     public float boost = 1f;
-    private float boostPower = 5f;
+    private float boostPower = 4f;
     private bool boosting = false;
 
     [SerializeField] private float energy; // Speed of the player when boosted
@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxHealth; // Maximum health of the player
     
     [SerializeField] private GameObject destroyEffect;
+    [SerializeField] private ParticleSystem engineEffect; //create smoke
 
     [SerializeField] private int goldfish = 0;
     
@@ -63,11 +64,17 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("moveY", directionY); // Set the animator parameters for movement
             
             playerDirection = new Vector2(directionX, directionY).normalized;
-            if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire2")){
+            if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire2"))
+            {
                 EnterBoost();
-            } else if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("Fire2")){
+            } else if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("Fire2"))
+            {
                 ExitBoost();
-            } else if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("Fire2")){
+            } 
+            
+            if (Input.GetKeyDown(KeyCode.RightShift) || Input.GetButtonDown("Fire1"))
+            {
+                FireWeapon.Instance.Shoot();
             }
         }
     }
@@ -96,6 +103,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("boosting", true);
             boost = boostPower;
             boosting = true;
+            engineEffect.Play();
         }
     }
     public void ExitBoost()
