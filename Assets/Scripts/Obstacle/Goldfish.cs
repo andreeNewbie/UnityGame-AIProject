@@ -7,7 +7,6 @@ public class GoldFish : MonoBehaviour
     private Vector3 movementDirection = Vector3.zero; // Hướng di chuyển của cá vàng
 
     [SerializeField] private float moveSpeed  = 0.5f;
-    [SerializeField] public float floatStrength = 0.5f; // Tốc độ trôi
     [SerializeField] public float directionChangeInterval = 1.5f; // Thời gian giữa các lần đổi hướng
     private float timeToNextDirectionChange;
     private void Start()
@@ -33,14 +32,21 @@ public class GoldFish : MonoBehaviour
         basePos += movementDirection * moveSpeed * Time.deltaTime;
         
         // floating effect
-        float floatingOffset = Mathf.Sin(Time.time) * floatStrength;
+        float move_y = Mathf.Sin(Time.time) * 0.3f * Time.deltaTime * GameManager.Instance.worldSpeed;
+        float move_x = GameManager.Instance.worldSpeed * Time.deltaTime;
         
         // Vị trí cuối cùng là vị trí cơ bản + hiệu ứng lên xuống
-        transform.position = new Vector3(
-            basePos.x,
-            basePos.y + floatingOffset,
-            basePos.z
-        );
+        // transform.position = new Vector3(
+        //     basePos.x - move_x,
+        //     basePos.y + move_y,
+        //     basePos.z
+        // );
+
+        transform.position += new Vector3(-move_x, move_y); // Di chuyển đối tượng về phía trước
+
+        if (Mathf.Abs(transform.position.x) > 11f){
+            Destroy(gameObject); // Destroy the asteroid if it goes out of bounds
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
