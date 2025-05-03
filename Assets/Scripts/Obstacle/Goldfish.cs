@@ -25,7 +25,7 @@ public class GoldFish : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Goldfish is destroyed!");
+            GameManager.Instance.goldfishCounter++;
             Destroy(gameObject); 
         }
     }

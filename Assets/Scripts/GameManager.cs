@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public float worldSpeed;
     public int critterCounter;
     [SerializeField] private GameObject boss1; 
+    [SerializeField] public int goldfishCounter; // count số cá vàng thu đc trong game, khác với goldfish cua player
+    [SerializeField] private GameObject bigGoldfish1; 
     void Awake(){
         if (Instance != null){
             Destroy(gameObject);
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     void Start(){
         critterCounter = 0; // Initialize the critter counter to 0
+        goldfishCounter = 0; // Initialize the goldfish counter to 0
     }
 
     void Update(){
@@ -28,6 +31,11 @@ public class GameManager : MonoBehaviour
         if(critterCounter > 10) {
             critterCounter = 0;
             Instantiate(boss1, new Vector2(11f, 0), Quaternion.identity); // Spawn the boss
+        }
+        if(goldfishCounter >= 10) {
+            goldfishCounter = 0;
+            Debug.Log("Spawned big goldfish"); // Log the spawning of the big goldfish
+            Instantiate(bigGoldfish1, new Vector2(Random.Range(0f,8f), 0), Quaternion.identity); // Spawn the big goldfish
         }
     }
 

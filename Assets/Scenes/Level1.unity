@@ -8394,20 +8394,15 @@ MonoBehaviour:
     spawnInterval: 2
     objectsPerWave: 2
     spawnedObjectCount: 0
-  - prefab: {fileID: 4743280906640416005, guid: ec2b9f47d4d4ef340accf2c291850da5, type: 3}
-    spawnTimer: 0
-    spawnInterval: 15
-    objectsPerWave: 1
-    spawnedObjectCount: 0
   - prefab: {fileID: 4845069082744871605, guid: 01bf48dda4dba7c469cfd892880ea5e6, type: 3}
     spawnTimer: 0
-    spawnInterval: 3
-    objectsPerWave: 2
+    spawnInterval: 2
+    objectsPerWave: 3
     spawnedObjectCount: 0
   - prefab: {fileID: 799644078436540114, guid: 6eeaaff100797784097c0fa41775f45d, type: 3}
     spawnTimer: 0
     spawnInterval: 3
-    objectsPerWave: 2
+    objectsPerWave: 4
     spawnedObjectCount: 0
   - prefab: {fileID: 4908358488480789045, guid: 34428fed570c3984d96dd32a66ba9760, type: 3}
     spawnTimer: 0
@@ -8922,6 +8917,8 @@ MonoBehaviour:
   worldSpeed: 2
   critterCounter: 0
   boss1: {fileID: 7191967479975919074, guid: 64f88fae3ff9ebd44a53709ab734c928, type: 3}
+  goldfishCounter: 0
+  bigGoldfish1: {fileID: 4743280906640416005, guid: ec2b9f47d4d4ef340accf2c291850da5, type: 3}
 --- !u!4 &1481476738
 Transform:
   m_ObjectHideFlags: 0
