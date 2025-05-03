@@ -21,7 +21,7 @@ public class FlashWhite : MonoBehaviour
     }
 
     IEnumerator ResetMaterial(){
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.05f);
         spriteRenderer.material = defaultMaterial;
     }
 

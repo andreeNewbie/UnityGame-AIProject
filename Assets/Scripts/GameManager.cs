@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         }
         if(critterCounter > 9) {
             critterCounter = 0;
-            Instantiate(boss1, new Vector2(11f, 0), Quaternion.identity); // Spawn the boss
+            StartCoroutine(SpawnBossWithDelay()); // Spawn the boss after a delay
         }
         if(goldfishCounter >= 10) {
             goldfishCounter = 0;
@@ -71,5 +71,11 @@ public class GameManager : MonoBehaviour
 
     public void SetWorldSpeed(float speed) {
         worldSpeed = speed; // Set the world speed
+    }
+
+    private IEnumerator SpawnBossWithDelay() {
+        AudioManager.Instance.PlaySound(AudioManager.Instance.bossSpawn); // phát tiếng trước
+        yield return new WaitForSeconds(5f); // delay 5 giây (bạn có thể chỉnh thời gian)
+        Instantiate(boss1, new Vector2(11f, 0), Quaternion.identity); // sinh boss ra
     }
 };
