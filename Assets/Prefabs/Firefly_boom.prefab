@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 3080091595836028168}
   - component: {fileID: 7051682373857742108}
   - component: {fileID: 3294969146439660785}
-  - component: {fileID: -4369304754211978877}
+  - component: {fileID: 3075226344952764652}
+  - component: {fileID: 1398134219193701868}
+  - component: {fileID: 3840113728890379333}
   m_Layer: 8
   m_Name: Firefly_boom
   m_TagString: Untagged
@@ -111,7 +113,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-4369304754211978877
+--- !u!114 &3075226344952764652
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,6 +121,30 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2571825939229638943}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e744a01027d653e40b09319017273ce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1398134219193701868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2571825939229638943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928dc836da2533a4e9487cf89f1f2b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3840113728890379333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2571825939229638943}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9eff289025aeec445a8187edbd18c235, type: 3}
   m_Name: 
