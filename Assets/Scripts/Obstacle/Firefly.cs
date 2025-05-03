@@ -69,7 +69,20 @@ public class Firefly : MonoBehaviour
             return;
         }
 
-        // vị trí dự đoán của player
+        // Check player lại gần firefly => nếu ko thì firefly sẽ bay ra xa player
+         Vector3 toFirefly = (transform.position - currentPlayerPosition).normalized;
+        Vector3 playerDir = playerVelocity.normalized;
+        float approachFactor = Vector3.Dot(toFirefly, playerDir); // > 0 nếu player tiến tới
+
+        float distance = Vector3.Distance(currentPlayerPosition, transform.position);
+
+        // Nếu player đang tiến sát firefly (và khoảng cách gần) thì bỏ dự đoán
+        if (approachFactor > 0.7f && distance < 2f)
+        {
+            predictedTargetPosition = currentPlayerPosition;
+            return;
+        }
+        // vị trí dự đoán của player như bth
         predictedTargetPosition = currentPlayerPosition + playerVelocity * predictTime; 
     }
 
