@@ -2,23 +2,45 @@ using UnityEngine;
 public class GoldFish : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
-    public float floatStrength = 0.5f; // Tốc độ trôi
-    private Vector3 startPos;
 
+    private Vector3 basePos; // Vị trí cơ bản khi ko có floating
+    private Vector3 movementDirection = Vector3.zero; // Hướng di chuyển của cá vàng
+
+    [SerializeField] private float moveSpeed  = 0.5f;
+    [SerializeField] public float floatStrength = 0.5f; // Tốc độ trôi
+    [SerializeField] public float directionChangeInterval = 1.5f; // Thời gian giữa các lần đổi hướng
+    private float timeToNextDirectionChange;
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        startPos = GeneratePositionWithGA();
+        basePos = GeneratePositionWithGA();
+        transform.position = basePos;
+
+        PickNewDirection(); // Chọn hướng di chuyển ngẫu nhiên ngay từ đầu
+        timeToNextDirectionChange = directionChangeInterval;
     }
 
     private void Update()
     {
-        // floating up down ~~
-        transform.position = startPos + new Vector3(0, Mathf.Sin(Time.time) * floatStrength, 0);
-
-        // floating in random direction
-        Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized;
-        transform.position += randomDirection * floatStrength * Time.deltaTime; 
+        // Cách vài giây đổi hướng
+        timeToNextDirectionChange -= Time.deltaTime;
+        if (timeToNextDirectionChange <= 0)
+        {
+            PickNewDirection();
+            timeToNextDirectionChange = directionChangeInterval;
+        }
+        // di chuyển theo hướng đã chọn
+        basePos += movementDirection * moveSpeed * Time.deltaTime;
+        
+        // floating effect
+        float floatingOffset = Mathf.Sin(Time.time) * floatStrength;
+        
+        // Vị trí cuối cùng là vị trí cơ bản + hiệu ứng lên xuống
+        transform.position = new Vector3(
+            basePos.x,
+            basePos.y + floatingOffset,
+            basePos.z
+        );
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -29,7 +51,11 @@ public class GoldFish : MonoBehaviour
             Destroy(gameObject); 
         }
     }
-
+    private void PickNewDirection()
+    {
+        float angle = Random.Range(0, 360) * Mathf.Deg2Rad;
+        movementDirection = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0).normalized;
+    }
     private Vector3 GeneratePositionWithGA()
     {
         int populationSize = 20;

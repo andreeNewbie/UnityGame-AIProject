@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         if(goldfishCounter >= 10) {
             goldfishCounter = 0;
             Debug.Log("Spawned big goldfish"); // Log the spawning of the big goldfish
-            Instantiate(bigGoldfish1, new Vector2(Random.Range(0f,8f), 0), Quaternion.identity); // Spawn the big goldfish
+            Instantiate(bigGoldfish1, new Vector2(11f, Random.Range(-5f,5f)), Quaternion.identity); // Spawn the big goldfish
         }
     }
 
