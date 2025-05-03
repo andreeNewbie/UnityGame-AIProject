@@ -8,15 +8,18 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 playerDirection;
     private Animator animator; // Reference to the Animator component
-    private SpriteRenderer spriteRenderer;
+
+    private FlashWhite flashWhite; // Reference to the FlashWhite script
+
+    // private SpriteRenderer spriteRenderer;
  
-    private Material defaultMaterial;
-    [SerializeField] private Material whiteMaterial;
+    // private Material defaultMaterial;
+    // [SerializeField] private Material whiteMaterial;
 
     [SerializeField] private float moveSpeed; // Speed of the player
-    public float boost = 1f;
-    private float boostPower = 4f;
-    private bool boosting = false;
+    // public float boost = 1f;
+    // private float boostPower = 4f;
+    public bool boosting = false;
 
     [SerializeField] private float energy; // Speed of the player when boosted
     [SerializeField] private float maxEnergy; // Maximum energy of the player
@@ -45,8 +48,10 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>(); // Get the Animator component attached to the player
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        defaultMaterial = spriteRenderer.material;
+        // spriteRenderer = GetComponent<SpriteRenderer>();
+        // defaultMaterial = spriteRenderer.material;
+
+        flashWhite = GetComponent<FlashWhite>(); // Get the FlashWhite component attached to the player
 
         energy = maxEnergy; // Initialize energy to maximum energy
         UIController.Instance.UpdateEnergySlider(energy, maxEnergy); // Update the UI with the initial energy value
@@ -88,7 +93,7 @@ public class PlayerController : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(playerDirection.x * moveSpeed, playerDirection.y * moveSpeed);
         if (boosting){
-            if (energy >= 0.2f) energy -= 0.2f;
+            if (energy >= 0.5f) energy -= 0.5f;
             else ExitBoost();
         } else
         {
@@ -107,7 +112,7 @@ public class PlayerController : MonoBehaviour
         if (energy > 10){
             AudioManager.Instance.PlaySound(AudioManager.Instance.fire);
             animator.SetBool("boosting", true);
-            boost = boostPower;
+            GameManager.Instance.SetWorldSpeed(7f); 
             boosting = true;
             engineEffect.Play();
         }
@@ -115,7 +120,7 @@ public class PlayerController : MonoBehaviour
     public void ExitBoost()
     {
         animator.SetBool("boosting", false);
-        boost = 1f;
+        GameManager.Instance.SetWorldSpeed(1f);
         boosting = false;
     }
 
@@ -151,12 +156,15 @@ public class PlayerController : MonoBehaviour
     private void TakeDamage(int damage){
         health -= damage;
         UIController.Instance.UpdateHealthSlider(health, maxHealth);
-        spriteRenderer.material = whiteMaterial;
-        StartCoroutine("ResetMaterial");
+        // spriteRenderer.material = whiteMaterial;
+        // StartCoroutine("ResetMaterial");
         AudioManager.Instance.PlaySound(AudioManager.Instance.hit);
+
+        flashWhite.Flash(); // Call the Flash method from the FlashWhite script to change the material to white
         if (health <= 0)
         {
-            boost = 0f;
+            ExitBoost(); // Exit boost mode if health reaches zero
+            GameManager.Instance.SetWorldSpeed(0f);
             gameObject.SetActive(false);
             Instantiate(destroyEffect, transform.position, transform.rotation);
             GameManager.Instance.GameOver(); // Call the GameOver method from the GameManager script
@@ -164,10 +172,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    IEnumerator ResetMaterial(){
-        yield return new WaitForSeconds(0.2f);
-        spriteRenderer.material = defaultMaterial;
-    }
+    // IEnumerator ResetMaterial(){
+    //     yield return new WaitForSeconds(0.2f);
+    //     spriteRenderer.material = defaultMaterial;
+    // }
 
     public void UpdateGoldfish(int amount)
     {
