@@ -27,17 +27,18 @@ public class GoldFish : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.Instance.goldfishCounter++;
-            AudioManager.Instance.PlaySound(AudioManager.Instance.collectGoldfish); // Play the sound when collecting goldfish
+            AudioManager.Instance.PlaySound(AudioManager.Instance.collectGoldfish);
             Destroy(gameObject); 
         }
     }
     private Vector3 GeneratePositionWithGA()
     {
+        
         int populationSize = 20;
         Vector3[] population = new Vector3[populationSize];
         Vector3 playerPos = PlayerController.Instance.transform.position;
 
-        // Tạo quần thể ngẫu nhiên
+        // Create initial population
         for (int i = 0; i < populationSize; i++)
         {
             float x = Random.Range(-5f, 5f);
@@ -45,21 +46,36 @@ public class GoldFish : MonoBehaviour
             population[i] = new Vector3(x, y, 0);
         }
 
-        // Chọn cá thể có fitness cao nhất, aka xa player nhất
-        float bestScore = float.MinValue;
-        Vector3 bestPos = Vector3.zero;
+        // Select top 50% candidates based on fitness function
+        int numToSelect = populationSize / 2;
+        System.Array.Sort(population, (a, b) => FitnessFunction(b, playerPos).CompareTo(FitnessFunction(a, playerPos)));
 
-        foreach (Vector3 pos in population)
+        // Crossover 
+        for (int i = numToSelect; i < populationSize; i++)
         {
-            float score = FitnessFunction(pos, playerPos);
-            if (score > bestScore)
+                Vector3 parent1 = population[Random.Range(0, numToSelect)];
+                Vector3 parent2 = population[Random.Range(0, numToSelect)];
+                float x = (parent1.x + parent2.x) / 2;
+                float y = (parent1.y + parent2.y) / 2;
+                population[i] = new Vector3(x, y, 0);
+        }
+
+        // Mutation
+        for (int i = 0; i < populationSize ; i++)
+        {
+            if (Random.value < 0.1f) // 10% chance to mutate
             {
-                bestScore = score;
-                bestPos = pos;
+                float mutationX = Random.Range(-1f, 1f);
+                float mutationY = Random.Range(-1f, 1f);
+                population[i] += new Vector3(mutationX, mutationY, 0);
             }
         }
 
-        return bestPos;
+        // Choose best candidate
+        System.Array.Sort(population, (a, b) => FitnessFunction(b, playerPos).CompareTo(FitnessFunction(a, playerPos)));
+        Vector3 bestCandidate = population[0];
+
+        return bestCandidate;
     }
     private float FitnessFunction(Vector3 candidate, Vector3 player)
     {
