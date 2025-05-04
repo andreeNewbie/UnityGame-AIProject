@@ -30,7 +30,13 @@ public class UIController : MonoBehaviour
     public void UpdateGoldfishSlider(int current, int max){
         goldfishSlider.value = Mathf.RoundToInt(current); // Round the current energy value to the nearest integer
         goldfishSlider.maxValue = max;
-        goldfishText.text = goldfishSlider.value + "/" + goldfishSlider.maxValue; // Update the text to show current and max energy
+        if ( goldfishSlider.value == goldfishSlider.maxValue && healthSlider.value < healthSlider.maxValue){
+            PlayerController.Instance.UpdateGoldfish(-5); // Update the goldfish count in GameManager
+            PlayerController.Instance.Heal();
+            GameManager.Instance.goldfishCounter -= 5; // Update the goldfish counter in GameManager
+        }
+        else
+            goldfishText.text = goldfishSlider.value + "/" + goldfishSlider.maxValue; // Update the text to show current and max energy
     }
 
     private void Awake(){

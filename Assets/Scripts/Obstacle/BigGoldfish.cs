@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement; // Import the SceneManager class to manage sc
 
 public class BigGoldfish : MonoBehaviour
 {
+    private int count = 0;
     void Update()
     {
         float moveX = GameManager.Instance.worldSpeed * Time.deltaTime;
@@ -15,7 +16,10 @@ public class BigGoldfish : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Player")){
-            SceneManager.LoadScene("Level 1 Complete");
+            count++;
+            AudioManager.Instance.PlaySound(AudioManager.Instance.collectGoldfish);
+            Destroy(gameObject); // Destroy the big goldfish when it collides with the player
+            GameManager.Instance.countBigGoldfish++;
         }
     }
 }

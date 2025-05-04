@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
         if (energy > 10){
             AudioManager.Instance.PlaySound(AudioManager.Instance.fire);
             animator.SetBool("boosting", true);
-            GameManager.Instance.SetWorldSpeed(7f); 
+            GameManager.Instance.SetWorldSpeed(GameManager.Instance.worldSpeed + 10f); 
             boosting = true;
             engineEffect.Play();
         }
@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour
     public void ExitBoost()
     {
         animator.SetBool("boosting", false);
-        GameManager.Instance.SetWorldSpeed(1f);
+        GameManager.Instance.SetWorldSpeed(GameManager.Instance.worldSpeed - 10f);
         boosting = false;
     }
 
@@ -151,6 +151,12 @@ public class PlayerController : MonoBehaviour
         if(other.CompareTag("GoldfishMinus")){
             UpdateGoldfish(-1);
         }
+    }
+    public void Heal()
+    {
+        health += 1;
+        if (health > maxHealth) health = maxHealth; // Ensure health does not exceed maximum health
+        UIController.Instance.UpdateHealthSlider(health, maxHealth); // Update the UI with the current health value
     }
 
     private void TakeDamage(int damage){
