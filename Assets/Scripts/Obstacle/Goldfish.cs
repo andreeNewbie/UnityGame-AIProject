@@ -2,23 +2,24 @@ using UnityEngine;
 public class GoldFish : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
-    public float floatStrength = 0.5f; // Tốc độ trôi
-    private Vector3 startPos;
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        startPos = GeneratePositionWithGA();
+        transform.position = GeneratePositionWithGA(); 
     }
 
     private void Update()
-    {
-        // floating up down ~~
-        transform.position = startPos + new Vector3(0, Mathf.Sin(Time.time) * floatStrength, 0);
+    {        
+        // floating effect
+        float move_y = Mathf.Sin(Time.time) * 0.3f * Time.deltaTime * GameManager.Instance.worldSpeed;        
+        float move_x = GameManager.Instance.worldSpeed * Time.deltaTime;
 
-        // floating in random direction
-        Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized;
-        transform.position += randomDirection * floatStrength * Time.deltaTime; 
+        transform.position += new Vector3(-move_x, move_y); // Di chuyển đối tượng về phía trước
+
+        if (Mathf.Abs(transform.position.x) > 11f){
+            Destroy(gameObject); 
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -29,7 +30,6 @@ public class GoldFish : MonoBehaviour
             Destroy(gameObject); 
         }
     }
-
     private Vector3 GeneratePositionWithGA()
     {
         int populationSize = 20;

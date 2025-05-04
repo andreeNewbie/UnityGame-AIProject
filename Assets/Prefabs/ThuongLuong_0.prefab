@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 272386369008400269}
   - component: {fileID: 3034247079005251535}
   - component: {fileID: 6235690243211088255}
+  - component: {fileID: -9058805698905016672}
+  - component: {fileID: 117128658091043110}
   m_Layer: 11
   m_Name: ThuongLuong_0
   m_TagString: Boss
@@ -30,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.99, y: 0, z: 0}
-  m_LocalScale: {x: 0.49088, y: 0.49088, z: 0.49088}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,7 +99,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7191967479975919074}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 684fcddec5daa1b4ebd66f788c020d66, type: 3}
   m_Name: 
@@ -137,7 +139,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 4.33
+  m_Radius: 4
 --- !u!50 &6235690243211088255
 Rigidbody2D:
   serializedVersion: 5
@@ -165,3 +167,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-9058805698905016672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7191967479975919074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c46f69956b97a49883473fd25fc06d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &117128658091043110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7191967479975919074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 684fcddec5daa1b4ebd66f788c020d66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
