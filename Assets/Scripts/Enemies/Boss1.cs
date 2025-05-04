@@ -17,6 +17,7 @@ public class Boss1 : MonoBehaviour
     private float speed = 7f;
     private Vector3 pursueDirection; // hướng pursue được cố định khi bắt đầu
     private bool isPursuing = false; // trạng thái pursue
+    [SerializeField] private GameObject destroyBossEffect;
 
     void Start()
     {
@@ -139,6 +140,7 @@ public class Boss1 : MonoBehaviour
         lives -= damage; // Decrease the boss's lives by the damage taken
         flashWhite.Flash(); // Call the Flash method from the FlashWhite script to change the material to white
         if(lives <= 0){
+            Instantiate(destroyBossEffect, transform.position, transform.rotation);
             Destroy(gameObject); // Destroy the boss if its lives reach zero
         }
     }

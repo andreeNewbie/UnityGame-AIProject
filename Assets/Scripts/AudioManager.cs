@@ -12,6 +12,8 @@ public class AudioManager : MonoBehaviour
     public AudioSource bossCharge;
     public AudioSource hitRock;
     public AudioSource bossSpawn;
+    public AudioSource bigGoldfishSpawn;
+    public AudioSource collectGoldfish;
     void Awake()
     {
         if (Instance != null){

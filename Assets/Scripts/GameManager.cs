@@ -84,7 +84,8 @@ public class GameManager : MonoBehaviour
     }
 
     private IEnumerator SpawnBigGoldfishWithDelay() {
-        yield return new WaitForSeconds(5f); // delay 5 giây (bạn có thể chỉnh thời gian)
+        AudioManager.Instance.PlaySound(AudioManager.Instance.bigGoldfishSpawn); // phát tiếng trước
+        yield return new WaitForSeconds(3f); // delay 5 giây (bạn có thể chỉnh thời gian)
         Instantiate(bigGoldfish1, new Vector2(11f, Random.Range(-5f,5f)), Quaternion.identity); // Spawn the big goldfish // sinh boss ra
     }
 };

@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 3
+  destroyObstacleEffect: {fileID: 6125027839830206653, guid: 82e92790c37d03745af1e4e3fba6a35d, type: 3}
 --- !u!50 &1747530735067551146
 Rigidbody2D:
   serializedVersion: 5

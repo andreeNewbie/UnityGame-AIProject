@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3217573205975894015}
   - component: {fileID: 1609002804403942275}
-  - component: {fileID: 272386369008400269}
   - component: {fileID: 3034247079005251535}
   - component: {fileID: 6235690243211088255}
   - component: {fileID: -9058805698905016672}
@@ -93,18 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &272386369008400269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7191967479975919074}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 684fcddec5daa1b4ebd66f788c020d66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &3034247079005251535
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -192,6 +179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 684fcddec5daa1b4ebd66f788c020d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flashWhite: {fileID: 0}
+  destroyBossEffect: {fileID: 6125027839830206653, guid: 82e92790c37d03745af1e4e3fba6a35d, type: 3}
 --- !u!1001 &1055302048659196187
 PrefabInstance:
   m_ObjectHideFlags: 0

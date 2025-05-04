@@ -27,6 +27,7 @@ public class GoldFish : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.Instance.goldfishCounter++;
+            AudioManager.Instance.PlaySound(AudioManager.Instance.collectGoldfish); // Play the sound when collecting goldfish
             Destroy(gameObject); 
         }
     }

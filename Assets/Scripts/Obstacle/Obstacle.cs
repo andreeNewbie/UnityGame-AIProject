@@ -12,6 +12,7 @@ public class Obstacle : MonoBehaviour
     private FlashWhite flashWhite; // Reference to the FlashWhite script
 
     [SerializeField] private int lives = 3; // Set the initial lives of the obstacle
+    [SerializeField] private GameObject destroyObstacleEffect; // Effect to play when the obstacle is destroyed
 
     void Start()
     {
@@ -54,6 +55,7 @@ public class Obstacle : MonoBehaviour
         flashWhite.Flash(); // Call the Flash method from the FlashWhite script to change the material to white
 
         if(lives <= 0){
+            Instantiate(destroyObstacleEffect, transform.position, transform.rotation); // Instantiate the destroy effect at the obstacle's position
             Destroy(gameObject); // Destroy the obstacle if its lives reach zero
         }
     }
