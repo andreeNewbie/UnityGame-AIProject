@@ -41,7 +41,7 @@ public class Obstacle : MonoBehaviour
             TakeDamage(1); // Call the TakeDamage method when colliding with player or bullet
         }
         else if(collision.gameObject.CompareTag("Boss")){
-            TakeDamage(10); // Call the TakeDamage method when colliding with boss
+            TakeDamage(5); // Call the TakeDamage method when colliding with boss
         }
     }
 

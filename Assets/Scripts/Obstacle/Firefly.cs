@@ -77,7 +77,7 @@ public class Firefly : MonoBehaviour
         float distance = Vector3.Distance(currentPlayerPosition, transform.position);
 
         // Nếu player đang tiến sát firefly (và khoảng cách gần) thì bỏ dự đoán
-        if (approachFactor > 0.7f && distance < 2f)
+        if (approachFactor > 0.3f && distance < 10f)
         {
             predictedTargetPosition = currentPlayerPosition;
             return;

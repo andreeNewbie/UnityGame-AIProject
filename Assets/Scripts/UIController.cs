@@ -40,4 +40,9 @@ public class UIController : MonoBehaviour
             Instance = this;
         }
     }
+
+    public bool IsFull()
+    {
+        return goldfishSlider.value == goldfishSlider.maxValue; 
+    }
 }

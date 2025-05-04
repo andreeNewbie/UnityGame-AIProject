@@ -6065,7 +6065,7 @@ Transform:
   m_GameObject: {fileID: 385643025}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.19, y: -5.02, z: 0}
+  m_LocalPosition: {x: 9.99, y: -4.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8399,18 +8399,18 @@ MonoBehaviour:
     spawnedObjectCount: 0
   - prefab: {fileID: 4845069082744871605, guid: 01bf48dda4dba7c469cfd892880ea5e6, type: 3}
     spawnTimer: 0
-    spawnInterval: 2
-    objectsPerWave: 3
+    spawnInterval: 4
+    objectsPerWave: 2
     spawnedObjectCount: 0
   - prefab: {fileID: 799644078436540114, guid: 6eeaaff100797784097c0fa41775f45d, type: 3}
     spawnTimer: 0
     spawnInterval: 3
-    objectsPerWave: 4
+    objectsPerWave: 2
     spawnedObjectCount: 0
   - prefab: {fileID: 4908358488480789045, guid: 34428fed570c3984d96dd32a66ba9760, type: 3}
     spawnTimer: 0
     spawnInterval: 2
-    objectsPerWave: 1
+    objectsPerWave: 2
     spawnedObjectCount: 0
 --- !u!4 &1232550800
 Transform:
@@ -9443,7 +9443,7 @@ Transform:
   m_GameObject: {fileID: 1748612815}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 3.8, z: 0}
+  m_LocalPosition: {x: 10.03, y: 3.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
