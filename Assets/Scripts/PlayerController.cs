@@ -6,121 +6,102 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance;
 
     private Rigidbody2D rb;
+    private Animator animator;
+    private FlashWhite flashWhite;
+
     private Vector2 playerDirection;
-    private Animator animator; // Reference to the Animator component
-
-    private FlashWhite flashWhite; // Reference to the FlashWhite script
-
-    // private SpriteRenderer spriteRenderer;
- 
-    // private Material defaultMaterial;
-    // [SerializeField] private Material whiteMaterial;
-
-    [SerializeField] private float moveSpeed; // Speed of the player
-    // public float boost = 1f;
-    // private float boostPower = 4f;
+    [SerializeField] private float moveSpeed;
     public bool boosting = false;
 
-    [SerializeField] private float energy; // Speed of the player when boosted
-    [SerializeField] private float maxEnergy; // Maximum energy of the player
-    [SerializeField] private float energyRegen; // Maximum energy of the player
-    
-    [SerializeField] private float health; // health of the player
-    [SerializeField] private float maxHealth; // Maximum health of the player
+    [SerializeField] private float energy;
+    [SerializeField] private float maxEnergy;
+    [SerializeField] private float energyRegen;
 
+    [SerializeField] private float health;
+    [SerializeField] private float maxHealth;
     [SerializeField] private int goldfish;
     [SerializeField] private int maxGoldfish; // Maximum goldfish of the player
-    
-    [SerializeField] private GameObject destroyEffect;
-    [SerializeField] private ParticleSystem engineEffect; //create smoke
 
-    void Awake()
-    {
+    [SerializeField] private GameObject destroyEffect;
+    [SerializeField] private ParticleSystem engineEffect;
+
+    void Awake(){
         if (Instance != null){
-            Destroy(gameObject); 
-        } else{
+            Destroy(gameObject);
+        } else {
             Instance = this;
         }
     }
-    
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>(); // Get the Animator component attached to the player
-        // spriteRenderer = GetComponent<SpriteRenderer>();
-        // defaultMaterial = spriteRenderer.material;
+        animator = GetComponent<Animator>();
+        flashWhite = GetComponent<FlashWhite>();
 
-        flashWhite = GetComponent<FlashWhite>(); // Get the FlashWhite component attached to the player
-
-        energy = maxEnergy; // Initialize energy to maximum energy
-        UIController.Instance.UpdateEnergySlider(energy, maxEnergy); // Update the UI with the initial energy value
-        
-        health = maxHealth; // Initialize health to maximum health
-        UIController.Instance.UpdateHealthSlider(health, maxHealth); // Update the UI with the initial health value
-
-        goldfish = 0; // Initialize goldfish to 0
+        energy = maxEnergy;
+        UIController.Instance.UpdateEnergySlider(energy, maxEnergy);
+        health = maxHealth;
+        UIController.Instance.UpdateHealthSlider(health, maxHealth);
+         goldfish = 0; // Initialize goldfish to 0
         UIController.Instance.UpdateGoldfishSlider(goldfish, maxGoldfish); // Update the UI with the initial goldfish value
 
     }
 
     void Update()
     {
-        if(Time.timeScale > 0) {
-
+        if (Time.timeScale > 0){
             float directionX = Input.GetAxisRaw("Horizontal");
             float directionY = Input.GetAxisRaw("Vertical");
+
             animator.SetFloat("moveX", directionX);
-            animator.SetFloat("moveY", directionY); // Set the animator parameters for movement
+            animator.SetFloat("moveY", directionY);
             
             playerDirection = new Vector2(directionX, directionY).normalized;
-            if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire2"))
-            {
+
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire2")){
                 EnterBoost();
-            } else if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("Fire2"))
-            {
+            } else if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("Fire2")){
                 ExitBoost();
-            } 
-            
-            if (Input.GetKeyDown(KeyCode.RightShift) || Input.GetButtonDown("Fire1"))
-            {
+            }
+
+            if (Input.GetKeyDown(KeyCode.RightShift) || Input.GetButtonDown("Fire1")){
                 FireWeapon.Instance.Shoot();
             }
         }
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate(){
         rb.linearVelocity = new Vector2(playerDirection.x * moveSpeed, playerDirection.y * moveSpeed);
+
         if (boosting){
             if (energy >= 0.5f) energy -= 0.5f;
-            else ExitBoost();
-        } else
-        {
+            else {
+                ExitBoost();
+            }
+        } else {
             if (energy < maxEnergy){
                 energy += energyRegen;
             }
         }
-        UIController.Instance.UpdateEnergySlider(energy, maxEnergy); // Update the UI with the current energy value
+        UIController.Instance.UpdateEnergySlider(energy, maxEnergy);
         UIController.Instance.UpdateHealthSlider(health, maxHealth); // Update the UI with the current heath value
         UIController.Instance.UpdateGoldfishSlider(goldfish, maxGoldfish); // Update the UI with the current goldfish value
-
     }
 
-    private void EnterBoost()
-    {
+    private void EnterBoost(){
         if (energy > 10){
             AudioManager.Instance.PlaySound(AudioManager.Instance.fire);
             animator.SetBool("boosting", true);
-            GameManager.Instance.SetWorldSpeed(GameManager.Instance.worldSpeed + 10f); 
+            GameManager.Instance.SetWorldSpeed(10f); 
             boosting = true;
             engineEffect.Play();
         }
     }
-    public void ExitBoost()
-    {
+
+    public void ExitBoost(){
         animator.SetBool("boosting", false);
-        GameManager.Instance.SetWorldSpeed(GameManager.Instance.worldSpeed - 10f);
+        GameManager.Instance.SetWorldSpeed(3f);
         boosting = false;
     }
 
