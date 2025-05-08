@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject destroyEffect;
     [SerializeField] private ParticleSystem engineEffect; //create smoke
 
+    private float backUpWorldSpeed = 3f; // Backup world speed
+
     void Awake()
     {
         if (Instance != null){
@@ -112,7 +114,8 @@ public class PlayerController : MonoBehaviour
         if (energy > 10){
             AudioManager.Instance.PlaySound(AudioManager.Instance.fire);
             animator.SetBool("boosting", true);
-            GameManager.Instance.SetWorldSpeed(10f); 
+            backUpWorldSpeed = GameManager.Instance.worldSpeed; // Store the current world speed
+            GameManager.Instance.SetWorldSpeed(Mathf.Min(20, backUpWorldSpeed + 10)); // Set the world speed to a higher value
             boosting = true;
             engineEffect.Play();
         }
@@ -120,7 +123,7 @@ public class PlayerController : MonoBehaviour
     public void ExitBoost()
     {
         animator.SetBool("boosting", false);
-        GameManager.Instance.SetWorldSpeed(3f);
+        GameManager.Instance.SetWorldSpeed(backUpWorldSpeed); // Restore the world speed to the backup value
         boosting = false;
     }
 
